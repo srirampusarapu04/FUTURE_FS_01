@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sriram Developer | Portfolio</title>
+
+<meta name="description"
+content="Portfolio of Pusarapu Sriram, Full Stack Developer, AI/ML Engineer, and Software Developer.">
+
+<meta name="keywords"
+content="Sriram, Portfolio, Full Stack Developer, AI Engineer, Machine Learning, Web Developer">
+
+<meta name="author" content="Pusarapu Sriram">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+--primary:#00f7ff;
+--secondary:#7b2ff7;
+--dark:#050816;
+--card:rgba(255,255,255,0.06);
+--text:#ffffff;
+--muted:#b8c1d1;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:var(--dark);
+color:var(--text);
+overflow-x:hidden;
+}
+
+/* LOADER */
+
+#loader{
+position:fixed;
+inset:0;
+background:#050816;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:99999;
+}
+
+.loader-text{
+font-family:'Orbitron',sans-serif;
+font-size:3rem;
+font-weight:800;
+color:var(--primary);
+border-right:4px solid var(--primary);
+white-space:nowrap;
+overflow:hidden;
+width:0;
+animation:
+typingLoader 2.5s steps(17,end) forwards,
+blink .8s infinite;
+}
+
+@keyframes typingLoader{
+from{width:0}
+to{width:17ch}
+}
+
+@keyframes blink{
+50%{border-color:transparent}
+}
+
+/* PARTICLES */
+
+#particles{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+pointer-events:none;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(5,8,22,.8);
+backdrop-filter:blur(15px);
+z-index:1000;
+}
+
+.logo{
+font-family:'Orbitron',sans-serif;
+font-size:1.4rem;
+font-weight:700;
+color:var(--primary);
+}
+
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+nav a{
+color:#fff;
+text-decoration:none;
+transition:.3s;
+}
+
+nav a:hover{
+color:var(--primary);
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:120px 20px;
+}
+
+.hero-content{
+max-width:900px;
+animation:float 5s ease-in-out infinite;
+}
+
+.hero h1{
+font-family:'Orbitron',sans-serif;
+font-size:5rem;
+background:linear-gradient(90deg,var(--primary),var(--secondary));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero h2{
+margin-top:20px;
+font-size:1.7rem;
+color:#d7dbe6;
+min-height:45px;
+}
+
+.hero p{
+margin-top:25px;
+line-height:1.8;
+color:var(--muted);
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+margin-top:35px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 35px;
+background:linear-gradient(45deg,var(--primary),var(--secondary));
+border-radius:50px;
+text-decoration:none;
+color:white;
+font-weight:600;
+transition:.4s;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+box-shadow:0 0 30px var(--primary);
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+}
+
+/* COMMON */
+
+section{
+padding:100px 10%;
+}
+
+.section-title{
+font-family:'Orbitron',sans-serif;
+font-size:2.8rem;
+text-align:center;
+margin-bottom:60px;
+color:var(--primary);
+}
+
+.glass{
+background:var(--card);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.stat-card{
+padding:30px;
+text-align:center;
+}
+
+.stat-card h3{
+font-size:3rem;
+color:var(--primary);
+}
+
+/* ABOUT */
+
+.about{
+padding:40px;
+line-height:1.9;
+font-size:1.05rem;
+}
+
+/* EXPERIENCE */
+
+.experience-card{
+padding:40px;
+}
+
+.experience-card h3{
+color:var(--primary);
+font-size:2rem;
+margin-bottom:10px;
+}
+
+.experience-card span{
+color:#a78bfa;
+font-weight:600;
+}
+
+.project-tags{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+.tag{
+padding:20px;
+border-radius:15px;
+background:rgba(255,255,255,.05);
+text-align:center;
+}
+
+/* SKILLS */
+
+.skills-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.skill{
+padding:25px;
+text-align:center;
+transition:.4s;
+}
+
+.skill:hover{
+transform:translateY(-8px);
+box-shadow:0 0 25px rgba(0,247,255,.3);
+}
+
+/* PROJECTS */
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.project{
+padding:30px;
+transition:.4s;
+}
+
+.project:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px rgba(123,47,247,.4);
+}
+
+.project h3{
+color:var(--primary);
+margin-bottom:15px;
+}
+
+.project-links{
+margin-top:20px;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+/* EDUCATION */
+
+.timeline{
+display:flex;
+flex-direction:column;
+gap:25px;
+}
+
+.timeline-item{
+padding:25px;
+}
+
+/* CONTACT */
+
+.contact{
+text-align:center;
+padding:40px;
+}
+
+.contact p{
+margin:15px 0;
+}
+
+.contact a{
+color:var(--primary);
+text-decoration:none;
+}
+
+/* FOOTER */
+
+footer{
+padding:30px;
+text-align:center;
+background:#02030a;
+color:#9ba3b7;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2.7rem;
+}
+
+.hero h2{
+font-size:1.1rem;
+}
+
+nav{
+flex-direction:column;
+gap:15px;
+}
+
+nav ul{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.hero-buttons{
+flex-direction:column;
+align-items:center;
+}
+}
+</style>
+</head>
+<body>
+
+<div id="loader">
+<h1 class="loader-text">sriram.developer</h1>
+</div>
+
+<canvas id="particles"></canvas>
+
+<div id="website" style="display:none;">
+
+<nav>
+<div class="logo">SRIRAM.DEVELOPER</div>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>PUSARAPU SRIRAM</h1>
+
+<h2 id="typing"></h2>
+
+<p>
+AI & Machine Learning Student, Full Stack Developer,
+and Problem Solver passionate about building futuristic
+web applications, AI-powered solutions and scalable software.
+</p>
+
+<div class="hero-buttons">
+<a href="#about" class="btn">Explore Portfolio</a>
+
+<a href="resume.pdf" class="btn" download>
+Download Resume
+</a>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">OVERVIEW</h2>
+
+<div class="stats">
+
+<div class="glass stat-card">
+<h3>3+</h3>
+<p>Projects Developed</p>
+</div>
+
+<div class="glass stat-card">
+<h3>1</h3>
+<p>Internship Completed</p>
+</div>
+
+<div class="glass stat-card">
+<h3>10+</h3>
+<p>Technical Skills</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2 class="section-title">ABOUT ME</h2>
+
+<div class="glass about">
+Second-year B.Tech student in Artificial Intelligence & Machine Learning.
+
+Passionate about Full Stack Development, Software Engineering,
+Machine Learning, and creating impactful digital experiences.
+
+Seeking opportunities to contribute to real-world projects while
+continuously improving technical expertise.
+</div>
+
+</section>
+
+<section id="experience">
+
+<h2 class="section-title">INTERNSHIP EXPERIENCE</h2>
+
+<div class="glass experience-card">
+
+<h3>Full Stack Developer Intern</h3>
+
+<span>Thinarex Technologies</span>
+
+<p style="margin-top:20px">
+Worked on real-world web development projects including
+frontend development, backend integration and responsive UI design.
+</p>
+
+<div class="project-tags">
+
+<div class="tag">🌐 Portfolio Website</div>
+<div class="tag">🛒 E-Commerce Website</div>
+<div class="tag">✅ Task Management System</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="skills">
+
+<h2 class="section-title">TECH STACK</h2>
+
+<div class="skills-grid">
+
+<div class="glass skill">Python</div>
+<div class="glass skill">Java</div>
+<div class="glass skill">C</div>
+<div class="glass skill">JavaScript</div>
+<div class="glass skill">HTML5</div>
+<div class="glass skill">CSS3</div>
+<div class="glass skill">SQL</div>
+<div class="glass skill">Git</div>
+<div class="glass skill">Machine Learning</div>
+<div class="glass skill">Data Structures</div>
+<div class="glass skill">DBMS</div>
+<div class="glass skill">OOP</div>
+
+</div>
+
+</section>
+
+<section id="projects">
+
+<h2 class="section-title">PROJECTS</h2>
+
+<div class="projects">
+
+<div class="glass project">
+<h3>Portfolio Website</h3>
+<p>Modern responsive personal portfolio with futuristic UI.</p>
+
+<div class="project-links">
+<a href="#" class="btn">Demo</a>
+<a href="#" class="btn">GitHub</a>
+</div>
+</div>
+
+<div class="glass project">
+<h3>E-Commerce Platform</h3>
+<p>Product listings, cart system and responsive design.</p>
+
+<div class="project-links">
+<a href="#" class="btn">Demo</a>
+<a href="#" class="btn">GitHub</a>
+</div>
+</div>
+
+<div class="glass project">
+<h3>Task Management System</h3>
+<p>Task creation, tracking and productivity management.</p>
+
+<div class="project-links">
+<a href="#" class="btn">Demo</a>
+<a href="#" class="btn">GitHub</a>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">EDUCATION</h2>
+
+<div class="timeline">
+
+<div class="glass timeline-item">
+<h3>B.Tech - Artificial Intelligence & Machine Learning</h3>
+<p>Sir C R Reddy College of Engineering</p>
+<p>2024 - 2028</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="section-title">CONTACT</h2>
+
+<div class="glass contact">
+
+<p>
+📧
+<a href="mailto:pusarapusriram@gmail.com">
+pusarapusriram@gmail.com
+</a>
+</p>
+
+<p>
+📱
+<a href="tel:+919392400629">
+9392400629
+</a>
+</p>
+
+<p>📍 Andhra Pradesh, India</p>
+
+<p>
+<a href="https://linkedin.com/in/your-profile" target="_blank">
+LinkedIn
+</a>
+|
+<a href="https://github.com/your-username" target="_blank">
+GitHub
+</a>
+</p>
+
+</div>
+
+</section>
+
+<footer>
+© <span id="year"></span> SRIRAM.DEVELOPER | Built with Passion 🚀
+</footer>
+
+</div>
+
+<script>
+
+/* LOADER */
+
+window.addEventListener("load",()=>{
+setTimeout(()=>{
+document.getElementById("loader").style.display="none";
+document.getElementById("website").style.display="block";
+},2000);
+});
+
+/* DYNAMIC YEAR */
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+/* TYPING EFFECT */
+
+const text =
+"Full Stack Developer • AI/ML Engineer • Intern @ Thinarex";
+
+const typingElement =
+document.getElementById("typing");
+
+let index = 0;
+
+function typeText(){
+if(index < text.length){
+typingElement.textContent += text.charAt(index);
+index++;
+setTimeout(typeText,60);
+}
+}
+
+setTimeout(typeText,2200);
+
+/* PARTICLES */
+
+const canvas =
+document.getElementById("particles");
+
+const ctx =
+canvas.getContext("2d");
+
+let particles = [];
+
+function createParticles(){
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+particles = [];
+
+for(let i=0;i<120;i++){
+
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2+1,
+dx:(Math.random()-0.5),
+dy:(Math.random()-0.5)
+});
+
+}
+}
+
+createParticles();
+
+function animate(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle="#00f7ff";
+ctx.fill();
+
+p.x += p.dx;
+p.y += p.dy;
+
+if(p.x < 0 || p.x > canvas.width)
+p.dx *= -1;
+
+if(p.y < 0 || p.y > canvas.height)
+p.dy *= -1;
+
+});
+
+requestAnimationFrame(animate);
+}
+
+animate();
+
+window.addEventListener("resize",createParticles);
+
+</script>
+
+</body>
+</html>
